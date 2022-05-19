@@ -1,0 +1,12 @@
+FROM --platform=linux/amd64 ubuntu:20.04
+
+RUN apt-get update
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y build-essential automake libtool
+
+ADD . /repo
+WORKDIR /repo
+RUN ./bootstrap
+RUN ./configure
+RUN make -j8
+ENV LD_LIBRARY_PATH=/repo/src/.libs/
+RUN ldconfig

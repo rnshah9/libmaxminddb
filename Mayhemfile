@@ -1,0 +1,5 @@
+project: rnshah9/libmaxminddb
+target: libmaxminddb
+
+cmds:
+  - cmd: /repo/bin/.libs/mmdblookup -f @@ -i 127.0.0.1
